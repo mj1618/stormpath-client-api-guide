@@ -1,2 +1,3 @@
-# stormpath-client-api-guide
-The Stormpath Client API Guide documentation repo. 
+# Stormpath Client API Guide
+
+*The Stormpath Client API Guide documentation repo.*
