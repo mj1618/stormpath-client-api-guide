@@ -4,6 +4,8 @@
 Logging Out
 ***********
 
+.. _post-oauth-revoke:
+
 OAuth 2.0 Logout
 ----------------
 

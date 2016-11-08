@@ -2,7 +2,7 @@
 Welcome to the Stormpath Client API Guide!
 ******************************************
 
-The Stormpath Client API is intended for developers of Single Page Applications (SPAs) and mobile applications. Using the Client API endpoints, your application can:
+The Stormpath Client API is intended for developers of Single Page Applications (SPAs), mobile, and desktop applications. Using the Client API endpoints, your application can:
 
 - Authenticate an existing user and get back OAuth 2.0 tokens
 - Retrieve the current user's Account information
@@ -65,11 +65,11 @@ The list of currently-available endpoints is as follows:
 
 An example user flow using these endpoints could look as follows:
 
-1. The user lands on the login page for your Angular application
+1. The user lands on your application's login page. The data used to generate this page is pulled-in via a request to the ``/login`` endpoint.
 2. They fill out and submit their username and password.
-3. The username and password is sent to the Client API's ``/oauth/token`` endpoint over HTTPS
-4. Stormpath validates the credentials and responds with OAuth 2.0 Access and Refresh tokens
-5. Your Angular app stores the cookies in, for example, local storage.
+3. The username and password is sent to the Client API's ``/oauth/token`` endpoint over HTTPS.
+4. Stormpath validates the credentials and responds with OAuth 2.0 Access and Refresh tokens.
+5. Your app stores the cookies in, for example, local storage. If you are using a Stormpath SDK then this step is handled for you.
 6. The cookie is now passed along with a request to the ``/me`` endpoint in order to populate the user's Profile page.
 7. The user chooses to log out, and the "Logout" button sends a request to ``/oauth/revoke``, which revokes the existing OAuth Access and Refresh tokens.
 

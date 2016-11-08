@@ -4,7 +4,11 @@
 User Registration
 *****************
 
-Account Registration
+Get Registration View
+---------------------
+
+
+Create New Account
 --------------------
 
 **URL**
