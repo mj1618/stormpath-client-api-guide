@@ -1,3 +1,5 @@
+.. _password-reset:
+
 **************
 Password Reset
 **************

@@ -1,3 +1,5 @@
+.. _client-config:
+
 ***********************
 Configuring Your Client
 ***********************

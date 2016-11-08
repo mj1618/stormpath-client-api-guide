@@ -1,3 +1,5 @@
+.. _user-context:
+
 ************
 User Context
 ************
