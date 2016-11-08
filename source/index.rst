@@ -13,8 +13,7 @@ The Stormpath Client API is intended for developers of Single Page Applications 
 
 All Client API endpoints do not require an administrative API Key, so you don't have to worry about storing one on your client application, or having to inject one via a proxy server.
 
-How is this different from using Stormpath without the Client API?
-==================================================================
+**How is this different from using Stormpath without the Client API?**
 
 Stormpath is a cloud service allows you to register users, authenticate them, and store information about them, and all without having to implement your own encryption or user databases. However, access to the Stormpath API normally requires that your application pass an administrative API Key to authenticate each request, and client-side applications are not able to securely store API Keys.
 
@@ -40,29 +39,29 @@ The list of currently-available endpoints is as follows:
   * - Endpoint
     - Functionality
 
-  * - ``oauth/token``
-    - Authenticates a user and returns an OAuth token. See :ref:`here <authentication>` for more info.
+  * - ``/oauth/token``
+    - Authenticates a user and returns an OAuth token. [:ref:`More info<authentication>`]
 
-  * - ``oauth/revoke``
-    - Revokes a user's existing OAuth tokens. See :ref:`here <logout>` for more info.
+  * - ``/oauth/revoke``
+    - Revokes a user's existing OAuth tokens. [:ref:`More info <logout>`]
 
   * - ``/register``
-    - Registers a new user. See :ref:`here <registration>` for more info.
+    - Registers a new user. [:ref:`More info <registration>`]
 
-  * - ``verify``
-    - Verifies an email address. See :ref:`here <email-verification>` for more info.
+  * - ``/verify``
+    - Verifies an email address. [:ref:`More info <email-verification>`]
 
-  * - ``forgot``
-    - Initiates the password reset workflow. See :ref:`here <password-reset>` for more info.
+  * - ``/forgot``
+    - Initiates the password reset workflow. [:ref:`More info <password-reset>`]
 
-  * - ``change``
-    - Sends an updated password. See :ref:`here <password-reset>` for more info.
+  * - ``/change``
+    - Sends an updated password. [:ref:`More info <password-reset>`]
 
-  * - ``login``
-    - Retrieves the login view data for your Application. See :ref:`here <authentication>` for more info.
+  * - ``/login``
+    - Retrieves the login view data for your Application. [:ref:`More info <authentication>`]
 
-  * - ``me``
-    - Retrieves the current user's information. See :ref:`here <user-context>` for more info.
+  * - ``/me``
+    - Retrieves the current user's information. [:ref:`More info <user-context>`]
 
 An example user flow using these endpoints could look as follows:
 
