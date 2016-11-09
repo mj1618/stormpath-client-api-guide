@@ -126,7 +126,7 @@ OAuth 2.0 Login
 
 **URL**
 
-``https://{DNS-LABEL}.apps.stormpath.io/oauth/token``
+  ``https://{DNS-LABEL}.apps.stormpath.io/oauth/token``
 
 The OAuth endpoint takes one of the following:
 
