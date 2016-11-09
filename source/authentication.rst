@@ -18,7 +18,7 @@ Get Login View
 
 **URL**
 
-``https://{DNS-LABEL}.apps.stormpath.io/login``
+``GET https://{DNS-LABEL}.apps.stormpath.io/login``
 
 The login view is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, as well another collection of ``accountStores``.
 
@@ -152,6 +152,8 @@ Password
 
 **Response**
 
+``200 OK`` along with OAuth token.
+
 .. code-block:: json
 
   {
@@ -182,6 +184,8 @@ Client Credentials
 
 **Response**
 
+``200 OK`` along with OAuth token.
+
 .. code-block:: json
 
   {
@@ -206,6 +210,8 @@ Refresh Token
 
 
 **Response**
+
+``200 OK`` along with OAuth token.
 
 .. code-block:: json
 

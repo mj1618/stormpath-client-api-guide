@@ -8,7 +8,17 @@ Email Verification
 
 ``https://{DNS-LABEL}.apps.stormpath.io/verify``
 
-TRIGGER VERIFICATION EMAIL
+Trigger Verification Email
+==========================
+
+Sending a ``POST`` to the ``/verify`` endpoint with a ``login`` will trigger the `Verification Email Workflow <https://docs.stormpath.com/rest/product-guide/latest/accnt_mgmt.html#customizing-stormpath-emails>`__. ``login`` corresponds to either an Account's ``email`` or ``username``. The workflow will only be triggered if the following conditions are met:
+
+- the ``login`` corresponds to an ``email`` and/or ``username`` that exists in an Account in a Directory mapped to this Application, and
+- that Directory has the Email Verification Workflow enabled
+
+.. note::
+
+  If the Account exists in multiple Directories, Workflow behavior is dictated by the login priority of the Directories. So if Directory A has the Workflow disabled, but Directory B has the Workflow enabled, then the email will still be sent only if Directory B has a higher login priority that Directory A. For more information, see `the REST Product Guide <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__.
 
 **Request**
 
@@ -20,21 +30,42 @@ TRIGGER VERIFICATION EMAIL
   Host: violet-peace.apps.dev.stormpath.io
 
   {
-    "email": "jakub@stormpath.com"
+    "login": "jakub@stormpath.com"
   }
 
 **Response**
 
-200 OK
+To prevent leaking Account state, this call will always return a ``200 OK``.
 
-SEND VERIFICATION TOKEN
+.. code-block:: none
+
+  HTTP/1.1 200
+  Date: Wed, 09 Nov 2016 22:06:46 GMT
+  Content-Length: 0
+  Connection: Close
+
+Verify Email Address
+====================
+
+The Verification Email that Stormpath sends contains a link (configured as part of the Verification Workflow) that contains an ``sptoken``. This ``sptoken`` and its value can be passed to the ``verify`` endpoint as part of a ``GET`` in order to verify the email and set the Account's ``emailVerificationStatus`` to ``VERIFIED``.
+
+.. note::
+
+  If the Account's ``status`` was ``UNVERIFIED`` then successfully verifying the email will change the ``status`` to ``ENABLED``. However, verifying the email address will not change a status of ``DISABLED`` to ``ENABLED``.
 
 **Request**
 
-GET /verify?sptoken=10vphI5BzhVLczsxJKuImq HTTP/1.1
-Accept: application/json
-Host: violet-peace.apps.dev.stormpath.io
+.. code-block:: http
+
+  GET /verify?sptoken=31vhk0RvAag46NLFibasd HTTP/1.1
+  Accept: application/json
+  Host: violet-peace.apps.dev.stormpath.io
 
 **Response**
 
-200 OK
+.. code-block:: none
+
+  HTTP/1.1 200
+  Date: Wed, 09 Nov 2016 22:50:20 GMT
+  Content-Length: 0
+  Connection: Close

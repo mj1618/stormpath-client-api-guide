@@ -141,6 +141,8 @@ Sending a ``POST`` to this endpoint with an ``email`` and ``password`` will crea
 
 **Response**
 
+``200 OK`` along with the Account information.
+
 .. code-block:: json
 
   {
@@ -154,6 +156,7 @@ Sending a ``POST`` to this endpoint with an ``email`` and ``password`` will crea
       "middleName": null,
       "surname": "S",
       "status": "ENABLED",
-      "fullName": "Jakub S"
+      "fullName": "Jakub S",
+      "emailVerificationStatus": "UNVERIFIED"
     }
   }

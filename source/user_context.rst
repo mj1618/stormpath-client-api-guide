@@ -23,6 +23,8 @@ User Context
 
 **Response**
 
+``200 OK`` along with current session's Account information:
+
 .. code-block:: json
 
   {
@@ -37,6 +39,7 @@ User Context
       "surname": "Sw",
       "status": "ENABLED",
       "fullName": "Jakub Sw"
+      "emailVerificationStatus":"VERIFIED"
     }
   }
 
@@ -52,8 +55,7 @@ By default this call will return:
 - ``surname``
 - ``status``
 - ``fullName``
-
-What else returns is configurable.
+- ``emailVerificationStatus``
 
 You can also get back the Account's expanded:
 
@@ -65,3 +67,5 @@ You can also get back the Account's expanded:
 - Provider Data
 - Directory
 - Tenant
+
+For more information see the :ref:`configuration` chapter.

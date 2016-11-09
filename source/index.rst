@@ -28,7 +28,7 @@ The Client API exposes a configurable set of endpoints to your applications. The
 
 ``https://{word-pair}.apps.stormpath.io/{endpoint}``
 
-The word pair is randomly assigned (for example ``violet-peace``) when you create an Application and stored in your Application's ``webConfig`` resource. For more information, see (jakub.todo).
+The word pair is randomly assigned (for example ``violet-peace``) when you create an Application and stored in your Application's ``webConfig`` resource. For more information about Client API configuration, see the :ref:`configuration` chapter.
 
 The list of currently-available endpoints is as follows:
 
