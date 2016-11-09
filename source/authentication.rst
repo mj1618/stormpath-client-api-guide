@@ -48,7 +48,7 @@ Each returned ``field`` has the following information:
   * - ``type``
     - The input type for this field (e.g. ``text`` or ``password``).
 
-Any non-Cloud Account Stores mapped to this Application will also return as part of the response here. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
+Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
 
 **Account Stores**
 

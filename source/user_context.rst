@@ -8,6 +8,10 @@ User Context
 
 ``https://{DNS-LABEL}.apps.stormpath.io/me``
 
+.. note::
+
+  This call requires authentication.
+
 **Request**
 
 .. code-block:: http
@@ -51,7 +55,7 @@ By default this call will return:
 
 What else returns is configurable.
 
-You can also get back the Accounts expanded:
+You can also get back the Account's expanded:
 
 - API Keys
 - Applications

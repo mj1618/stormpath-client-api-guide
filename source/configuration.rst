@@ -4,7 +4,7 @@
 Configuring the Client API
 ****************************
 
-While the recommended way to configure the behavior of your Application's Client API is via the Stormpath Admin Console (jakub.todo), the full configuration information can be retrieved via REST.
+While the recommended way to configure the behavior of your Application's Client API is via the Stormpath Admin Console (jakub.todo), the full configuration information can be retrieved and updated via REST.
 
 **webConfig URL**
 
@@ -43,8 +43,8 @@ While the recommended way to configure the behavior of your Application's Client
 
     * - ``domainName``
       - String
-      - The full domain name for the Client API endpoints.
-      - (Optional)
+      - N/A
+      - (Optional) The full domain name for the Client API endpoints.
 
     * - ``status``
       - String (enum)
@@ -54,7 +54,7 @@ While the recommended way to configure the behavior of your Application's Client
     * - ``oauth2``
       - Object
       - N/A
-      - This object does two things: (1) It controls whether the ``/oauth/token`` endpoint is enabled, and (2) It controls if the ``client_credentials`` and ``password`` grant types are enabled or disabled.
+      - Enables or disables the ``/oauth/token`` endpoint.
 
     * - ``register``
       - Object
@@ -153,3 +153,18 @@ While the recommended way to configure the behavior of your Application's Client
       "href": "https://api.stormpath.com/v1/tenants/2Zu8zL6fwo27TTKAxjtvem"
     }
   }
+
+Updating the Configuration via REST
+===================================
+
+Although it is recommended that you use the Admin Console (jakub.todo) to configure your Client API, the following settings can be updated via an HTTP POST:
+
+- ``status``
+- ``oauth2``
+- ``register``
+- ``login``
+- ``verifyEmail``
+- ``forgotPassword``
+- ``changePassword``
+- ``me`` (along with all fields inside ``expand``)
+- ``signingApiKey``
