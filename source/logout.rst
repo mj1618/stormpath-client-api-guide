@@ -9,11 +9,11 @@ Logging Out
 OAuth 2.0 Logout
 ----------------
 
-This endpoint takes a POST with your current OAuth token and revokes it. You can optionally specify whether you are passing an Access or Refresh token with the ``token_type_hint`` parameter.
-
 **URL**
 
 ``https://{DNS-LABEL}.apps.stormpath.io/oauth/revoke``
+
+This endpoint takes a POST with your current OAuth token and revokes it. You can optionally specify whether you are passing an Access or Refresh token with the ``token_type_hint`` parameter.
 
 **Request**
 
