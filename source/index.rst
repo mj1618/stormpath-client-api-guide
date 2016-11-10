@@ -33,7 +33,7 @@ The DNS label is a word pair (for example ``violet-peace``) that is randomly-ass
 The list of currently-available endpoints is as follows:
 
 .. list-table::
-  :widths: 30 70
+  :widths: 20 80
   :header-rows: 1
 
   * - Endpoint
