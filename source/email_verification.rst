@@ -8,10 +8,12 @@ Email Verification
 
 ``https://{DNS-LABEL}.apps.stormpath.io/verify``
 
-Trigger Verification Email
-==========================
+Email Verification in the Client API uses the ``/verify`` endpoint. A ``POST`` to this endpoint along with a ``login`` will trigger the Email Verification Workflow. A ``GET`` along with a valid ``sptoken`` will verify an Account's email address.
 
-Sending a ``POST`` to the ``/verify`` endpoint with a ``login`` will trigger the `Verification Email Workflow <https://docs.stormpath.com/rest/product-guide/latest/accnt_mgmt.html#customizing-stormpath-emails>`__. ``login`` corresponds to either an Account's ``email`` or ``username``. The workflow will only be triggered if the following conditions are met:
+Trigger Verification Workflow
+=============================
+
+Sending a ``POST`` to the ``/verify`` endpoint with a ``login`` will trigger the `Verification Email Workflow <https://docs.stormpath.com/rest/product-guide/latest/accnt_mgmt.html#verify-account-email>`__. ``login`` corresponds to either an Account's ``email`` or ``username``. The workflow will only be triggered if the following conditions are met:
 
 - the ``login`` corresponds to an ``email`` and/or ``username`` that exists in an Account in a Directory mapped to this Application, and
 - that Directory has the Email Verification Workflow enabled
@@ -41,8 +43,6 @@ To prevent leaking Account state, this call will always return a ``200 OK``.
 
   HTTP/1.1 200
   Date: Wed, 09 Nov 2016 22:06:46 GMT
-  Content-Length: 0
-  Connection: Close
 
 Verify Email Address
 ====================
@@ -52,6 +52,8 @@ The Verification Email that Stormpath sends contains a link (configured as part 
 .. note::
 
   If the Account's ``status`` was ``UNVERIFIED`` then successfully verifying the email will change the ``status`` to ``ENABLED``. However, verifying the email address will not change a status of ``DISABLED`` to ``ENABLED``.
+
+The way that this would be used by your Client application is that the link in the email would point towards a page in your application, and that page would then relay the ``sptoken`` as part of the ``GET`` to the ``verify`` endpoint.
 
 **Request**
 

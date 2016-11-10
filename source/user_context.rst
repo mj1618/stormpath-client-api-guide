@@ -8,9 +8,7 @@ User Context
 
 ``https://{DNS-LABEL}.apps.stormpath.io/me``
 
-.. note::
-
-  This call requires authentication.
+An authenticated ``GET`` to the ``/me`` endpoint will return the current session's Account information according to the :ref:`Client API configuration <configuration>`. This is the only endpoint in the Client API that requires a valid session.
 
 **Request**
 

@@ -4,14 +4,14 @@
 User Registration
 *****************
 
+**URL**
+
+``https://{DNS-LABEL}.apps.stormpath.io/register``
+
 Registering a user is performed against the ``/register`` endpoint. A ``GET`` will retrieve the current registration view, while a ``POST`` can pass the data for the new user Account that is to be created.
 
 Get Registration View
 ---------------------
-
-**URL**
-
-``https://{DNS-LABEL}.apps.stormpath.io/register``
 
 The registration view is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, as well another collection of ``accountStores``.
 
@@ -116,11 +116,7 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
 Create New Account
 --------------------
 
-**URL**
-
-``https://{DNS-LABEL}.apps.stormpath.io/register``
-
-Sending a ``POST`` to this endpoint with an ``email`` and ``password`` will create a new Account in the Application's default Account Store.
+Sending a ``POST`` to ``/register`` with an ``email`` and ``password`` will create a new Account in the Application's default Account Store.
 
 .. note::
 
