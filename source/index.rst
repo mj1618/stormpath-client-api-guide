@@ -19,16 +19,16 @@ Stormpath is a cloud service allows you to register users, authenticate them, an
 
 To accommodate these client applications, the Client API allows for basic user registration and authentication tasks to be performed without requiring an administrative API key. This means that your client applications can use these endpoints in order to, for example, authenticate a user and get back a session. With this session in hand, the client application can then continue on with its own functionality, or securely communicate with a back-end application server.
 
-[A diagram here would be key]
+[A diagram here would be helpful]
 
 How does the Client API Work?
 =============================
 
 The Client API exposes a configurable set of endpoints to your applications. The endpoints are hosted by Stormpath, in URLs that are customized for each one of your Stormpath Applications:
 
-``https://{word-pair}.apps.stormpath.io/{endpoint}``
+``https://{DNS-LABEL}.apps.stormpath.io/{endpoint}``
 
-The word pair is randomly assigned (for example ``violet-peace``) when you create an Application and stored in your Application's ``webConfig`` resource. For more information about Client API configuration, see the :ref:`configuration` chapter.
+The DNS label is a word pair (for example ``violet-peace``) that is randomly-assigned when you create an Application. For more information about Client API configuration, see the :ref:`configuration` chapter.
 
 The list of currently-available endpoints is as follows:
 
@@ -46,7 +46,7 @@ The list of currently-available endpoints is as follows:
     - Revokes a user's existing OAuth tokens. [:ref:`More info <logout>`]
 
   * - ``/register``
-    - Registers a new user. [:ref:`More info <registration>`]
+    - Registers a new user. Can also be used to retrieve the Registration view data for your application. [:ref:`More info <registration>`]
 
   * - ``/verify``
     - Verifies an email address. [:ref:`More info <email-verification>`]
