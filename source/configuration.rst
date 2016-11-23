@@ -8,6 +8,8 @@ While the recommended way to configure the behavior of your Application's Client
 
 **webConfig URL**
 
+Every Stormpath Application has a linked `webConfig` resource, which can be retrieved with it's href:
+
   ``https://api.stormpath.com/v1/applicationWebConfigs/$WEB_CONFIG_ID``
 
 **Web Configuration Attributes**
@@ -38,48 +40,48 @@ While the recommended way to configure the behavior of your Application's Client
 
     * - ``dnsLabel``
       - String
-      - N/A
+      - DNS-compatible string
       - The random two-word name that is prepended to the Stormpath endpoints for your Application.
 
     * - ``domainName``
       - String
       - N/A
-      - (Optional) The full domain name for the Client API endpoints.
+      - The full domain name for the Client API endpoints.
 
     * - ``status``
       - String (enum)
       - ``ENABLED``, ``DISABLED``
       - Indicates whether the Client API is enabled or not. It is enabled by default for any new Applications.
 
-    * - ``oauth2``
+    * - ``oauth2.enabled``
       - Object
       - N/A
       - Enables or disables the ``/oauth/token`` endpoint.
 
-    * - ``register``
+    * - ``register.enabled``
       - Object
       - Boolean
       - Enables or disables the ``/register`` endpoint.
 
-    * - ``login``
+    * - ``login.enabled``
       - Object
       - Boolean
       - Enabled or disables the ``/login`` endpoint.
 
-    * - ``verifyEmail``
+    * - ``verifyEmail.enabled``
       - Object
-      - Boolean
-      - Enables or disables the ``/verify`` endpoint. This is automatically enabled if the default Account Store for this Stormpath Application has the email verification workflow enabled.
+      - Boolean | null
+      - Enables or disables the ``/verify`` endpoint. If null, this is automatically enabled if the default Account Store for this Stormpath Application has the email verification workflow enabled.
 
-    * - ``forgotPassword``
+    * - ``forgotPassword.enabled``
       - Object
-      - N/A
-      - Enables or disables the ``/forgot`` endpoint.
+      - Boolean | null
+      - Enables or disables the ``/forgot`` endpoint. If null, this is automatically enabled if the default Account Store for this Stormpath Application has the forgot password workflow enabled.
 
-    * - ``changePassword``
+    * - ``changePassword.enabled``
       - Object
-      - N/A
-      - Enables or disables the ``/change`` endpoint.
+      - Boolean | null
+      - Enables or disables the ``/change`` endpoint. If null, this is automatically enabled if the default Account Store for this Stormpath Application has the forgot password workflow enabled.
 
     * - ``me``
       - Object

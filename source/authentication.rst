@@ -9,18 +9,18 @@ Authentication in the Client API involves two endpoints:
 - ``/login``
 - ``/oauth/token``
 
-The ``/login`` endpoint is used to retrieve the dynamic login JSON view model, while the ``/oauth/token`` endpoint receives credentials from your application and returns back OAuth Access and Refresh tokens. For more information about both of these endpoint, see below.
+The ``/login`` endpoint is used to retrieve the JSON login view model, while the ``/oauth/token`` endpoint receives credentials from your application and returns back OAuth Access and Refresh tokens. For more information about both of these endpoint, see below.
 
 .. _get-login:
 
-Get Login View
-^^^^^^^^^^^^^^
+Get Login View Model
+^^^^^^^^^^^^^^^^^^^^
 
 **URL**
 
 ``GET https://{DNS-LABEL}.apps.stormpath.io/login``
 
-The login view is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, as well another collection of ``accountStores``.
+The login view model is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, and a collection of ``accountStores``.
 
 **Form Fields**
 
@@ -48,9 +48,10 @@ Each returned ``field`` has the following information:
   * - ``type``
     - The input type for this field (e.g. ``text`` or ``password``).
 
-Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
 
 **Account Stores**
+
+Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
 
 Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains an embedded ``provider`` object which contains the following information:
 
@@ -134,10 +135,13 @@ The OAuth endpoint takes one of the following:
 - Client Credentials (Basic Auth Base64 encoded API Key ID & Secret)
 - Refresh Token (URL-encoded)
 
-And returns OAuth 2.0 Access and Refresh tokens. Note that the names of the returned Access and Refresh tokens are configurable. For more information, see :ref:`configuration`.
+And returns OAuth 2.0 Access and Refresh tokens.
 
 Password
 """"""""
+
+In this flow, the end-user provides their username and password, and an access
+and refresh token is returned if those credentials are correct.
 
 **Request**
 
@@ -170,6 +174,13 @@ Password
 Client Credentials
 """"""""""""""""""
 
+In this flow, the end-user is authenticating with an API Key Pair that has been
+created for their account, and that data is passed in the headers like this:
+
+``Authorization: Basic <Base64UrlEncode(apiKeyId:apiKeySecret)>``
+
+If the API Key Pair is valid, an access and refresh token is returned.
+
 **Request**
 
 .. code-block:: http
@@ -196,6 +207,9 @@ Client Credentials
 
 Refresh Token
 """""""""""""
+
+This flow is used to create a new access token, using an existing refresh token.
+The request will fail if the refresh token is expired or has been revoked.
 
 **Request**
 

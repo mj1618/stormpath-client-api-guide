@@ -8,15 +8,17 @@ User Context
 
 ``https://{DNS-LABEL}.apps.stormpath.io/me``
 
-An authenticated ``GET`` to the ``/me`` endpoint will return the current session's Account information according to the :ref:`Client API configuration <configuration>`. This is the only endpoint in the Client API that requires a valid session.
+An authenticated ``GET`` to the ``/me`` endpoint will return the current session's Account information according to the :ref:`Client API configuration <configuration>`. This is the only endpoint in the Client API that requires authentication.
 
 **Request**
+
+To make a request of this endpoint, you need to provide a previously issued access token as the ``Authorization: Bearer <access_token>`` header:
 
 .. code-block:: http
 
   GET /me HTTP/1.1
   Content-Type: application/json; charset=utf-8
-  Cookie: access_token=eyJraW[...]tIUxpdhBJz74LR0dd90RQTnl-u-_hgOOkpA
+  Authorization: Bearer eyJraW[...]tIUxpdhBJz74LR0dd90RQTnl-u-_hgOOkpA
   Host: smooth-ensign.apps.dev.stormpath.io
 
 **Response**
@@ -55,7 +57,7 @@ By default this call will return:
 - ``fullName``
 - ``emailVerificationStatus``
 
-You can also get back the Account's expanded:
+But you can also configure this endpoint to return these Account properties:
 
 - API Keys
 - Applications

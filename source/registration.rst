@@ -8,12 +8,12 @@ User Registration
 
 ``https://{DNS-LABEL}.apps.stormpath.io/register``
 
-Registering a user is performed against the ``/register`` endpoint. A ``GET`` will retrieve the current registration view, while a ``POST`` can pass the data for the new user Account that is to be created.
+Registering a user is performed against the ``/register`` endpoint. A ``GET`` will retrieve the current registration view model, while a ``POST`` can pass the data for the new user Account that is to be created.
 
-Get Registration View
----------------------
+Get Registration View Model
+---------------------------
 
-The registration view is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, as well another collection of ``accountStores``.
+The registration view model is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, and a collection of ``accountStores``.
 
 **Form Fields**
 
@@ -41,9 +41,10 @@ Each returned ``field`` has the following information:
   * - ``type``
     - The input type for this field (e.g. ``text``, ``email``, ``password``).
 
-Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
-
 **Account Stores**
+
+
+Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
 
 Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains an embedded ``provider`` object which contains the following information:
 
@@ -64,7 +65,7 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
     - (Social Directories only) The OAuth 2.0 Client ID for this Provider.
 
   * - ``scope``
-    - (Social Directories only) An array containing the scope(s) that are being requested from the social provider.
+    - (Social Directories only) An array containing the scope(s) that are being requested from the social provider, as configured for this account store.
 
 **Example Request**
 
@@ -107,7 +108,7 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
           "clientId": "1401818363453044"
         },
         "href": "https://dev.i.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536",
-        "name": "Fake Facebook Dir"
+        "name": "My Facebook Dir"
       }
     ]
   }
