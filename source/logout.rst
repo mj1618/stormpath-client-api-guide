@@ -13,7 +13,7 @@ OAuth 2.0 Logout
 
 ``https://{DNS-LABEL}.apps.stormpath.io/oauth/revoke``
 
-This endpoint takes a POST with your current OAuth token and revokes it. You can optionally specify whether you are passing an Access or Refresh token with the ``token_type_hint`` parameter.
+This endpoint takes a POST with your current OAuth token and revokes it. You can optionally specify whether you are passing an Access or Refresh token with the ``token_type_hint`` parameter.  Regardless of which token type is provided, all the related access and refresh tokens will be revoked.
 
 **Request**
 
@@ -32,7 +32,5 @@ This endpoint takes a POST with your current OAuth token and revokes it. You can
 
   HTTP/1.1 200
   Date: Mon, 07 Nov 2016 19:35:25 GMT
-  Set-Cookie: access_token=;Max-Age=0;path=/;HttpOnly
-  Set-Cookie: refresh_token=;Max-Age=0;path=/;HttpOnly
   Content-Length: 0
   Connection: Close

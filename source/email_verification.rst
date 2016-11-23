@@ -8,7 +8,7 @@ Email Verification
 
 ``https://{DNS-LABEL}.apps.stormpath.io/verify``
 
-Email Verification in the Client API uses the ``/verify`` endpoint. A ``POST`` to this endpoint along with a ``login`` will trigger the Email Verification Workflow. A ``GET`` along with a valid ``sptoken`` will verify an Account's email address.
+Email Verification in the Client API uses the ``/verify`` endpoint. A ``POST`` to this endpoint along with a ``login`` will trigger the Email Verification Workflow and send the user an email with an email verification link. A ``GET`` along with a valid ``sptoken`` (sent to the user in the email link) will verify an Account's email address.
 
 Trigger Verification Workflow
 =============================
@@ -71,3 +71,5 @@ The way that this would be used by your Client application is that the link in t
   Date: Wed, 09 Nov 2016 22:50:20 GMT
   Content-Length: 0
   Connection: Close
+
+The response will fail if the token is invalid, already used, or expired.

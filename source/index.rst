@@ -65,12 +65,12 @@ The list of currently-available endpoints is as follows:
 
 An example user flow using these endpoints could look as follows:
 
-1. The user lands on your application's login page. The data used to generate this page is pulled-in via a request to the ``/login`` endpoint.
+1. The user lands on your web application's login page. The information needed to generate this page is pulled-in via a request to the ``/login`` endpoint.
 2. They fill out and submit their username and password.
 3. The username and password is sent to the Client API's ``/oauth/token`` endpoint over HTTPS.
 4. Stormpath validates the credentials and responds with OAuth 2.0 Access and Refresh tokens.
-5. Your app stores the cookies in, for example, local storage. If you are using a Stormpath SDK then this step is handled for you.
-6. The cookie is now passed along with a request to the ``/me`` endpoint in order to populate the user's Profile page.
+5. Your app stores these tokens in, for example, local storage. If you are using a Stormpath SDK then this step is handled for you.
+6. The tokens can now be passed along with a request to the ``/me`` endpoint in order to fetch the user's data, for use in your profile page.
 7. The user chooses to log out, and the "Logout" button sends a request to ``/oauth/revoke``, which revokes the existing OAuth Access and Refresh tokens.
 
 For more information, continue on to one of these sections:
@@ -82,12 +82,10 @@ For more information, continue on to one of these sections:
   client_config
   registration
   authentication
+  user_context
   logout
   email_verification
   password_reset
-  user_context
-
-
 
 
 .. Indices and tables
