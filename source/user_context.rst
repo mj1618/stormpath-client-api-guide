@@ -12,14 +12,14 @@ An authenticated ``GET`` to the ``/me`` endpoint will return the current session
 
 **Request**
 
-To make a request of this endpoint, you need to provide a previously issued access token as the ``Authorization: Bearer <access_token>`` header:
+To make a request to this endpoint, you need to provide a previously issued access token as the ``Authorization: Bearer <access_token>`` header:
 
 .. code-block:: http
 
   GET /me HTTP/1.1
   Content-Type: application/json; charset=utf-8
   Authorization: Bearer eyJraW[...]tIUxpdhBJz74LR0dd90RQTnl-u-_hgOOkpA
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
 **Response**
 
@@ -29,7 +29,7 @@ To make a request of this endpoint, you need to provide a previously issued acce
 
   {
     "account": {
-      "href": "https://dev.i.stormpath.com/v1/accounts/7gzK1RBUk2tF3VNhZ3AYFI",
+      "href": "https://api.stormpath.com/v1/accounts/7gzK1RBUk2tF3VNhZ3AYFI",
       "createdAt": "2016-10-26T16:48:14.457Z",
       "modifiedAt": "2016-10-26T16:48:14.457Z",
       "username": "jakub",
@@ -56,6 +56,7 @@ By default this call will return:
 - ``status``
 - ``fullName``
 - ``emailVerificationStatus``
+- ``passwordModifiedAt``
 
 But you can also configure this endpoint to return these Account properties:
 

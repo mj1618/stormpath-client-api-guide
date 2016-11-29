@@ -43,7 +43,6 @@ Each returned ``field`` has the following information:
 
 **Account Stores**
 
-
 Any non-Cloud Account Stores mapped to this Application will also return as part of the response here, in order to allow for the rendering of Social Login buttons. They will return in an order determined by their order in the Account Store Mapping priority index. For more about this topic, please see `How Login Attempts Work <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#how-login-attempts-work-in-stormpath>`__ in the REST Product Guide.
 
 Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains an embedded ``provider`` object which contains the following information:
@@ -73,7 +72,7 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
 
   GET /register HTTP/1.1
   Accept: application/json
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
 **Success Response**
 
@@ -85,11 +84,25 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
     "form": {
       "fields": [
         {
-          "name": "login",
-          "label": "Username or Email",
-          "placeholder": "Username or Email",
-          "required": true,
+          "name": "givenName",
+          "label": "First Name",
+          "placeholder": "First Name",
+          "required": false,
           "type": "text"
+        },
+        {
+          "name": "surname",
+          "label": "Last Name",
+          "placeholder": "Last Name",
+          "required": false,
+          "type": "text"
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "placeholder": "Email",
+          "required": true,
+          "type": "email"
         },
         {
           "name": "password",
@@ -103,11 +116,11 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
     "accountStores": [
       {
         "provider": {
-          "href": "https://dev.i.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536/provider",
+          "href": "https://api.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536/provider",
           "providerId": "facebook",
           "clientId": "1401818363453044"
         },
-        "href": "https://dev.i.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536",
+        "href": "https://api.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536",
         "name": "My Facebook Dir"
       }
     ]
@@ -129,7 +142,7 @@ Sending a ``POST`` to ``/register`` with an ``email`` and ``password`` will crea
 
   POST /register HTTP/1.1
   Content-Type: application/json; charset=utf-8
-  Host: violet-peace.apps.dev.stormpath.io
+  Host: violet-peace.apps.stormpath.io
 
   {
     "email": "jakub@stormpath.com",
@@ -144,7 +157,7 @@ Sending a ``POST`` to ``/register`` with an ``email`` and ``password`` will crea
 
   {
     "account": {
-      "href": "https://dev.i.stormpath.com/v1/accounts/5kYvdJyROImkrMHVD2fhSG",
+      "href": "https://api.stormpath.com/v1/accounts/5kYvdJyROImkrMHVD2fhSG",
       "createdAt": "2016-10-28T20:40:18.463Z",
       "modifiedAt": "2016-10-28T20:40:18.463Z",
       "username": "jakub+test9@stormpath.com",

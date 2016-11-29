@@ -34,7 +34,7 @@ Sending a ``POST`` to the ``/forgot`` endpoint with a ``login`` will trigger the
   POST /forgot HTTP/1.1
   Accept: application/json
   Content-Type: application/json; charset=utf-8
-  Host: violet-peace.apps.dev.stormpath.io
+  Host: violet-peace.apps.stormpath.io
 
   {
     "login": "jakub@stormpath.com"
@@ -66,7 +66,7 @@ The Password Reset Email that Stormpath sends contains a link (configured as par
   POST /change HTTP/1.1
   Accept: application/json
   Content-Type: application/json; charset=utf-8
-  Host: violet-peace.apps.dev.stormpath.io
+  Host: violet-peace.apps.stormpath.io
 
   {
     "sptoken": "eyJ0aWQiOiIyWnU4ekw2ZndvMjdUVEtBeGp0dmVtIiwic3R0IjoiYXNzZXJ0aW9uIiwiYWxnIjoiSFMyNTYifQ%2EeyJleHAiOjE0Nzc3NzUzNjIsImp0aSI6IjZFMWo0aTN4QkdPV1g2OXhrVDNSRG8ifQ%2ECOmIVRr3pQ4jsIhKl7wWjHkYTfX1Reg3BV0kAlMSQpc",

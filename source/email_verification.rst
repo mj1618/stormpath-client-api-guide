@@ -29,7 +29,7 @@ Sending a ``POST`` to the ``/verify`` endpoint with a ``login`` will trigger the
   POST /verify HTTP/1.1
   Accept: application/json
   Content-Type: text/plain; charset=utf-8
-  Host: violet-peace.apps.dev.stormpath.io
+  Host: violet-peace.apps.stormpath.io
 
   {
     "login": "jakub@stormpath.com"
@@ -61,7 +61,7 @@ The way that this would be used by your Client application is that the link in t
 
   GET /verify?sptoken=31vhk0RvAag46NLFibasd HTTP/1.1
   Accept: application/json
-  Host: violet-peace.apps.dev.stormpath.io
+  Host: violet-peace.apps.stormpath.io
 
 **Response**
 

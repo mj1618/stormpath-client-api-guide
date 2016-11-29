@@ -112,7 +112,7 @@ Every Stormpath Application has a linked `webConfig` resource, which can be retr
     "createdAt": "2016-11-08T19:16:13.308Z",
     "modifiedAt": "2016-11-08T19:16:13.308Z",
     "dnsLabel": "cold-diver",
-    "domainName": "cold-diver.apps.dev.stormpath.io",
+    "domainName": "cold-diver.apps.stormpath.io",
     "status": "ENABLED",
     "oauth2": {
       "enabled": true

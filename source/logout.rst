@@ -22,7 +22,7 @@ This endpoint takes a POST with your current OAuth token and revokes it. You can
   POST /oauth/revoke HTTP/1.1
   Accept: application/json
   Content-Type: application/x-www-form-urlencoded; charset=utf-8
-  Host: perfect-rank.apps.dev.stormpath.io
+  Host: perfect-rank.apps.stormpath.io
 
   token=eyJraWQ[...]urs4iqPY&token_type_hint=refresh_token
 

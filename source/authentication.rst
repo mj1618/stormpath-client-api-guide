@@ -18,7 +18,7 @@ Get Login View Model
 
 **URL**
 
-``GET https://{DNS-LABEL}.apps.stormpath.io/login``
+``https://{DNS-LABEL}.apps.stormpath.io/login``
 
 The login view model is returned in the form of JSON. It includes a ``form`` object that contains a ``fields`` collection to be rendered in the login form, and a collection of ``accountStores``.
 
@@ -80,7 +80,7 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
 
   GET /login HTTP/1.1
   Accept: application/json
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
 **Success Response**
 
@@ -110,12 +110,12 @@ Each returned ``accountStore`` has an ``href`` and a ``name``. It also contains 
     "accountStores": [
       {
         "provider": {
-          "href": "https://dev.i.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536/provider",
+          "href": "https://api.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536/provider",
           "providerId": "facebook",
           "clientId": "1401818363453044"
         },
-        "href": "https://dev.i.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536",
-        "name": "Fake Facebook Dir"
+        "href": "https://api.stormpath.com/v1/directories/2TRsNjHx8DB6Ca3rBal536",
+        "name": "A Facebook Directory"
       }
     ]
   }
@@ -132,16 +132,15 @@ OAuth 2.0 Login
 The OAuth endpoint takes one of the following:
 
 - Username & Password (URL-encoded)
-- Client Credentials (Basic Auth Base64 encoded API Key ID & Secret)
+- Client Credentials (Basic Auth Base64-encoded API Key ID & Secret)
 - Refresh Token (URL-encoded)
 
-And returns OAuth 2.0 Access and Refresh tokens.
+It returns OAuth 2.0 Access and Refresh tokens.
 
 Password
 """"""""
 
-In this flow, the end-user provides their username and password, and an access
-and refresh token is returned if those credentials are correct.
+In this flow, the end-user provides their username and password, and an access and refresh token are returned if those credentials are correct.
 
 **Request**
 
@@ -150,7 +149,7 @@ and refresh token is returned if those credentials are correct.
   POST /oauth/token HTTP/1.1
   Accept: application/json
   Content-Type: application/x-www-form-urlencoded
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
   grant_type=password&username=jakub%40stormpath.com&password=Password1%21
 
@@ -174,8 +173,7 @@ and refresh token is returned if those credentials are correct.
 Client Credentials
 """"""""""""""""""
 
-In this flow, the end-user is authenticating with an API Key Pair that has been
-created for their account, and that data is passed in the headers like this:
+In this flow, the end-user is authenticating with an API Key Pair that has been created for their account, and that data is passed in the headers like this:
 
 ``Authorization: Basic <Base64UrlEncode(apiKeyId:apiKeySecret)>``
 
@@ -189,7 +187,7 @@ If the API Key Pair is valid, an access and refresh token is returned.
   Accept: application/json
   Content-Type: application/x-www-form-urlencoded
   Authorization: Basic MzZGT1dDWUJBMk1KMVBQWlVZ[...]4SWFhQkpSUTZhZ3ZHajZnSWMyeEVV
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
   grant_type=client_credentials
 
@@ -218,7 +216,7 @@ The request will fail if the refresh token is expired or has been revoked.
   POST /oauth/token HTTP/1.1
   Accept: application/json
   Content-Type: application/x-www-form-urlencoded
-  Host: smooth-ensign.apps.dev.stormpath.io
+  Host: smooth-ensign.apps.stormpath.io
 
   grant_type=refresh_token&refresh_token=eyJraWQ[...]FMQIh-fwns
 

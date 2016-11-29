@@ -19,7 +19,9 @@ Stormpath is a cloud service allows you to register users, authenticate them, an
 
 To accommodate these client applications, the Client API allows for basic user registration and authentication tasks to be performed without requiring an administrative API key. This means that your client applications can use these endpoints in order to, for example, authenticate a user and get back a session. With this session in hand, the client application can then continue on with its own functionality, or securely communicate with a back-end application server.
 
-[A diagram here would be helpful]
+.. todo::
+
+  [A diagram here would be helpful]
 
 How does the Client API Work?
 =============================
