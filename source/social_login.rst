@@ -80,7 +80,14 @@ LinkedIn
 
 #. If you haven't already, create a LinkedIn application here: https://www.linkedin.com/developer/apps
 
-#. Once you've created application, go its authentication settings and add the full ``/authorize/callback`` endpoint under "Authorized Redirect URLs" (e.g. ``https://cold-diver.apps.dev.stormpath.io/authorize/callback``)
+#. Once you've created the application, go to its authentication settings and add the full ``/authorize/callback`` endpoint under "Authorized Redirect URLs" (e.g. ``https://cold-diver.apps.dev.stormpath.io/authorize/callback``)
+
+Twitter
+^^^^^^^
+
+#. If you haven't already, create a Twitter application here: https://apps.twitter.com
+
+#. Once you've created the application, go to its authentication settings and add the full ``/authorize/callback`` endpoint under "Callback URL" (e.g. ``https://cold-diver.apps.dev.stormpath.io/authorize/callback``)
 
 2. Create a Stormpath Social Directory
 --------------------------------------
