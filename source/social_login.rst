@@ -46,7 +46,7 @@ Once all of these steps are complete, social login will be ready to go!
 1. Configuring Your Social Provider
 -----------------------------------
 
-Each social login provider will require you to create an application and configure it in order for login to work. Stormpath offers supports a few specific providers, like Facebook and Google. If you would like to integrate login with a different provider, then you can create a Generic OAuth Directory and configure it for your provider. More information about Generic OAuth Directories can be found in `the REST Product Guide <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#generic-oauth-2-0-login>`__.
+Each social login provider will require you to create an application and configure it in order for login to work. Stormpath offers supports a few specific providers, like Facebook and Google. If you would like to integrate login with a different provider, then you can create a Generic OAuth Directory and configure it for your provider. Example configurations for Generic OAuth Directories can be found in `the REST Product Guide <https://docs.stormpath.com/rest/product-guide/latest/auth_n.html#generic-oauth-2-0-login>`__.
 
 Facebook
 ^^^^^^^^
